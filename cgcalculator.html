@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SGPA Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      background: #f2f2f2;
+      position: relative;
+    }
+    h2 {
+      text-align: center;
+    }
+    p.instruction {
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .credit {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<h2>SGPA Calculator</h2>
+<p class="instruction">Enter the <strong>grade points</strong> for each subject below:</p>
+
+<label>Mathematics:</label>
+<input type="number" id="math" step="0.1" min="0" max="10">
+
+<label>Electrical:</label>
+<input type="number" id="elec" step="0.1" min="0" max="10">
+
+<label>Engineering Drawing (ED):</label>
+<input type="number" id="ed" step="0.1" min="0" max="10">
+
+<label>Applied Physics:</label>
+<input type="number" id="ap" step="0.1" min="0" max="10">
+
+<label>Humanities:</label>
+<input type="number" id="hum" step="0.1" min="0" max="10">
+
+<label>CPP:</label>
+<input type="number" id="cpp" step="0.1" min="0" max="10">
+
+<label>Practical:</label>
+<input type="number" id="prac" step="0.1" min="0" max="10">
+
+<button onclick="calculateSGPA()">Calculate SGPA</button>
+
+<div class="result" id="result"></div>
+
+<div class="credit">made by atharvthegreatgupta</div>
+
+<script>
+function calculateSGPA() {
+  let math = parseFloat(document.getElementById("math").value) || 0;
+  let elec = parseFloat(document.getElementById("elec").value) || 0;
+  let ed = parseFloat(document.getElementById("ed").value) || 0;
+  let ap = parseFloat(document.getElementById("ap").value) || 0;
+  let hum = parseFloat(document.getElementById("hum").value) || 0;
+  let cpp = parseFloat(document.getElementById("cpp").value) || 0;
+  let prac = parseFloat(document.getElementById("prac").value) || 0;
+
+  let sgpa = (4*math + 3*elec + 2*ed + 3*ap + 2*hum + 3*cpp + 5*prac) / 22;
+
+  document.getElementById("result").innerText = "Your SGPA is: " + sgpa.toFixed(2);
+}
+</script>
+
+</body>
+</html>
